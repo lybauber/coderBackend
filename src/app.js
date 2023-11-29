@@ -1,33 +1,45 @@
 import express from 'express';
-import ProductManager from '../productManager.js';
+import { cartRouter } from './routes/carts.router.js';
+import { productRouter } from './routes/products.router.js';
 
 
-
+const PORT = 8080;
 const app = express();
+app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
-const port = 3000;
 
-const products = new ProductManager();
+app.use('/api/products', productRouter);
+app.use('/api/carts', cartRouter);
 
 
-app.get('/products', async (req, res) => {
 
-    let limit = parseInt(req.query.limit);
+app.listen(PORT, () => {
+    console.log(`${PORT} Server`);
+})
 
-    if (!limit) return res.send(await products.getProducts());
+
+
+
+
+// const products = new ProductManager();
+
+
+// app.get('/products', async (req, res) => {
+
+//     let limit = parseInt(req.query.limit);
+
+//     if (!limit) return res.send(await products.getProducts());
     
-    let all = await products.getProducts();
-    let limited = all.slice(0, limit);
+//     let all = await products.getProducts();
+//     let limited = all.slice(0, limit);
       
-    res.send(limited);
-})
+//     res.send(limited);
+// })
 
 
-app.get('/products/:pid', async (req, res) => {
-    let id = parseInt(req.params.pid);
-    res.send(await products.getProductById(id));
-})
-app.listen(port, () => {
-    console.log('servidor');
-})
+// app.get('/products/:pid', async (req, res) => {
+//     let id = parseInt(req.params.pid);
+//     res.send(await products.getProductById(id));
+// })
+

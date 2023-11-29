@@ -1,7 +1,10 @@
 import fs from 'fs';
+import path from 'path';
+import __dirname from '../utils.js';
 
 export default class ProductManager {
-    constructor() {
+    constructor(pathFile) {
+        // this.path = path.join(__dirname, `./files/${pathFile}`);
         this.path = '../products.txt';
         this.products = [];
     }
@@ -25,6 +28,7 @@ export default class ProductManager {
 
         this.products.push(newProduct);
         await fs.promises.writeFile(this.path, JSON.stringify(this.products));
+        return this.products;
     }
 
     getProducts = async () => {
