@@ -1,9 +1,9 @@
 import { Router } from "express";
 import ProductManager from "../manager/productManager.js";
 
-// const path = "products.json";
+const path = "products.json";
 const router = Router();
-const productManager = new ProductManager();
+const productManager = new ProductManager(path);
 
 router.get("/", async (req, res) => {
     const products = await productManager.getProducts();
@@ -32,7 +32,6 @@ router.post("/", async (req, res) => {
         thumbnail,
         code,
         stock} = req.body;
-        console.log(req.body);
     const newProduct = await productManager.addProduct(title, description, price, thumbnail, code, stock);
     res.send({
         status: "success",
