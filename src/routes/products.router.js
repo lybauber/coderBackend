@@ -11,13 +11,12 @@ const productManager = new ProductManager(path);
 
 router.get("/", async (req, res) => {
     const products = await productManager.getProducts();
-    res.send({
-        status: "success",
-        products: products
+    // res.send({
+    //     status: "success",
+    //     products: products
+    res.render("home", {products})
     });
    
-    
-})
 
 router.get("/:pid", async (req, res) => {
     let id = parseInt(req.params.pid);

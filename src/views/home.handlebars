@@ -1,0 +1,19 @@
+<div>
+    <h1>All Products</h1>
+
+    <ul>
+    {{#each products}}
+      <li><strong>Product id{{this.id}}.</strong> </li>
+      <li style="list-style:none"><strong>Title:</strong> {{this.title}}</li>
+      <li style="list-style:none"><strong>Description:</strong> {{this.description}}</li>
+      <li style="list-style:none"><strong>Prices:</strong> ${{this.price}}</li>
+      <li style="list-style:none"> <strong>Url:</strong> {{this.thumbnail}}</li>
+      <li style="list-style:none"> <strong>Cdoe:</strong> {{this.code}}</li>
+      <li style="list-style:none"><strong>Stock:</strong> {{this.stock}}</li>
+
+      <hr>
+      
+    {{/each}}
+  </ul>
+
+</div>
