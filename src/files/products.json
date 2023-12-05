@@ -1,1 +1,38 @@
-[{"id":1,"title":"prueba4","description":"descriptionPrueba2","price":"102","thumbnail":"thumbnail2","code":"1232","stock":"102"}]
+[
+	{
+		"title": "111111111",
+		"description": "nuevadescriptionPrueba",
+		"price": "200",
+		"thumbnail": "thumbnail1",
+		"code": "200",
+		"stock": "10-0000",
+		"id": 1
+	},
+	{
+		"title": "newproduc2",
+		"description": "nuevadescriptionPrueba2",
+		"price": "200",
+		"thumbnail": "thumbnail1",
+		"code": "200",
+		"stock": "102",
+		"id": 2
+	},
+	{
+		"title": "newproduc3",
+		"description": "nuevadescriptionPrueba3",
+		"price": "200",
+		"thumbnail": "thumbnail1",
+		"code": "200",
+		"stock": "102",
+		"id": 3
+	},
+	{
+		"title": "newproduc3",
+		"description": "nuevadescriptionPrueba4",
+		"price": "200",
+		"thumbnail": "thumbnail1",
+		"code": "200",
+		"stock": "102",
+		"id": 4
+	}
+]

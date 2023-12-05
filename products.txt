@@ -1,1 +1,1 @@
-[{"id":1,"title":{}},{"id":3,"title":{}},{"id":5,"title":{}}]
+[{"id":1,"title":{"title":"cambio","description":"descriptionPrueba2","price":"102","thumbnail":"thumbnail2","code":"1232","stock":"102"}},{"id":2,"title":"prueba2","description":"descriptionPrueba2","price":"102","thumbnail":"thumbnail2","code":"1232","stock":"102"},{"id":3,"title":"prueba3","description":"descriptionPrueba2","price":"102","thumbnail":"thumbnail2","code":"1232","stock":"102"}]
