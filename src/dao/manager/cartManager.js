@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import __dirname from '../utils.js';
+// import __dirname from '../utils.js';
+import __dirname from '../../utils.js';
 
 export default class CartManager {
     constructor(pathFile) {
-        this.path = path.join(__dirname, `/files/${pathFile}`);
+        this.path = path.join(__dirname, `/dao/files/${pathFile}`);
     }
 
     getCarts = async () => {

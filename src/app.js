@@ -4,13 +4,21 @@ import { productRouter } from './routes/products.router.js';
 import { viewsRouter } from './routes/views.router.js';
 import handlebars from 'express-handlebars';
 import __dirname from './utils.js';
+import * as mongoose from 'mongoose';
 
 
 
 const PORT = 8080;
 const app = express();
+
+
+const MONGO = "mongodb+srv://lybauber:colombia123@dbprueba.6vwlw9c.mongodb.net/ecommerce"
+
+const connection = mongoose.connect(MONGO);
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
+
 
 app.engine("handlebars", handlebars.engine());
 app.set("views", __dirname + "/views");
@@ -24,11 +32,17 @@ app.use('/api/carts', cartRouter);
 
 
 
-app.listen(PORT, () => {
+const httpServer = app.listen(PORT, () => {
     console.log(`${PORT} Server`);
 })
 
 
+// const io = new Server(httpServer);
 
+// io.on('connection', socket => {
+//     socket.on('message', data => {
+//         MONGO.
+//     })
+// })
 
 

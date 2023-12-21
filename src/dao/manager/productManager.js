@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import __dirname from '../utils.js';
+import __dirname from '../../utils.js';
 import { profileEnd } from 'console';
 
 // class ProductManager {
@@ -22,7 +22,7 @@ import { profileEnd } from 'console';
 
 export default class ProductManager {
     constructor(pathFile) {
-        this.path = path.join(__dirname, `./files/${pathFile}`);
+        this.path = path.join(__dirname, `dao/files/${pathFile}`);
         
     }
 
