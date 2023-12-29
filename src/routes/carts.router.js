@@ -1,12 +1,11 @@
 import { Router } from "express";
-import  CartManager  from "../dao/manager/cartManager.js";
+import CartManagerDB from "../dao/dbManagers/CartManagerDB.js";
 
-const path = "carts.json"
 const router = Router();
-const cartManager = new CartManager(path);
+const cartManagerMongo = new CartManagerDB();
 
 router.get("/", async (req, res) => {  
-    const carts = await cartManager.getCarts();
+    const carts = await cartManagerMongo.getCarts();
     res.send({
         status: "success",
         carts: carts
@@ -15,7 +14,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:cid", async (req, res) => {
     let id = parseInt(req.params.cid);
-    const cart = await cartManager.getCartById(id);
+    const cart = await cartManagerMongo.getCartById(id);
     res.send({
         status: "success",
         cart: cart
@@ -25,15 +24,23 @@ router.get("/:cid", async (req, res) => {
 })
 
 router.post("/", async (req, res) => {
-    // const cart = await cartManager.createCart();
-    // res.status(201).send(cart);
-    res.send('this is the post cart')
+    const cart = await cartManagerMongo.createCart();
+    res.send({
+        status: "success",
+        msg: cart,
+    })
 
 })
 
 router.post("/:cid/product/:pid", async (req,res)=>{
-    const {cid, pid} = req.params;
-    res.send(`this is the post product by cart ${cid} and product${pid}`)
+    const {cid, pid, quantity} = req.params;
+
+    const cart = await cartManagerMongo.addProductToCart(cid, pid, quantity);
+
+    res.send({
+        status: "success",
+        msg: cart
+    })
 })
 
 
